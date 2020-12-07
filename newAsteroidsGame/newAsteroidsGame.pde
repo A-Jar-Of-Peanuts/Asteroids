@@ -32,9 +32,9 @@ public void setup() {
 
 public void draw() {
   if (mode == GAME) {
-    background(255); 
+    background(#e5e5e5); 
     rectMode(CENTER); 
-    fill(255, 0, 0);
+    fill(#f28482);
     stroke(0);
     strokeWeight(3);
     rect(width, 0, 200, 100); 
@@ -44,9 +44,10 @@ public void draw() {
     textSize(50); 
     text("Lives: " + player.getLives(), 0, 50);
     text("Score: " + score, 0, 100); 
-    
+
     pasttimea++; 
-    pasttimeu++; 
+    if (!isUFO) 
+      pasttimeu++; 
 
     if (pasttimea>=500) { 
       //System.out.println("new asteroid"); 
@@ -70,7 +71,7 @@ public void draw() {
       } else {
         if (asteroid.get(i) instanceof UFO) {
           isUFO = false; 
-          pasttimeu = millis();
+          pasttimeu = 0;
         }
         asteroid.remove(i);
       }
@@ -98,24 +99,24 @@ public void draw() {
   } else if (mode == GAMEOVER) {
     //System.out.println(player.getLives()); 
     if (player.getLives() <=0) {
-      background(255, 0, 0);
+      background(#f28482);
       fill(0); 
       textSize(30); 
       text("YOU LOSE", 0, 30);
     } else {
       fill(0); 
       textSize(30); 
-      background(0, 255, 0);
+      background(#84a59d);
       text("YOU WIN", 0, 30);
     }
   } else if (mode == INTRO) {
-    background(0);
+    background(#14213d);
     fill(255); 
     textSize(30); 
     text("ASTEROID GAME", 0, 30);
     text("PRESS ENTER TO START", width/2, height/2);
   } else if (mode == PAUSE) {
-    background(100, 100, 100); 
+    background(#fca311); 
     fill(255); 
     textSize(30); 
     text("PAUSE", 0, 30); 

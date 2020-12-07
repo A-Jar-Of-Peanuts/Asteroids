@@ -51,8 +51,8 @@ public class Asteroid extends GameObject {
   }
 
   public void show() {
-    fill(0, 0, 255);
-    noStroke(); 
+    fill(#14213d);  
+    stroke(3); 
     circle(location.x, location.y, size);
     ////translate(location.x, location.y); 
     //location = new PVector(random(width), random(height)); 

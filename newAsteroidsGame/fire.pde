@@ -13,9 +13,9 @@ class Fire extends GameObject {
   public void show() {
     noStroke(); 
     if (blue) {
-      fill(0, 0, 255, opacity);
+      fill(#14213d, opacity);
     } else {
-      fill(255, 0, 0, opacity);
+      fill(#f28482, opacity);
     }
     circle(location.x, location.y, 10);
   }
