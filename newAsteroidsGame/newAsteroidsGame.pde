@@ -23,11 +23,12 @@ public void setup() {
   player = new Player(50, width/5, height/5, 3); 
   pasttimea = 0;
   pasttimeu = 0;
-  //for(int i = 0; i<10; i++) {
-  //  ob.add(new Asteroid(50, 1)); 
-  //}
   asteroid.add(new Asteroid(100, 1));
   mode = INTRO;
+  PFont font = createFont("TeluguMN", 30); 
+  textFont(font); 
+  String[] fontlist = PFont.list(); 
+  printArray(fontlist); 
 }
 
 public void draw() {
@@ -40,7 +41,7 @@ public void draw() {
     rect(width, 0, 200, 100); 
     textSize(30); 
     fill(0); 
-    text("PAUSE", width-100, 30);
+    text("PAUSE", width-95, 30);
     textSize(50); 
     text("Lives: " + player.getLives(), 0, 50);
     text("Score: " + score, 0, 100); 
@@ -101,13 +102,13 @@ public void draw() {
     if (player.getLives() <=0) {
       background(#f28482);
       fill(0); 
-      textSize(30); 
-      text("YOU LOSE", 0, 30);
+      textSize(100); 
+      text("YOU LOSE", width/2-250, height/2);
     } else {
       fill(0); 
-      textSize(30); 
+      textSize(100); 
       background(#84a59d);
-      text("YOU WIN", 0, 30);
+      text("YOU WIN", width/2-200, height/2);
     }
   } else if (mode == INTRO) {
     background(#14213d);
@@ -115,6 +116,7 @@ public void draw() {
     textSize(30); 
     text("ASTEROID GAME", 0, 30);
     text("PRESS ENTER TO START", width/2, height/2);
+    text("REACH 100 POINTS TO WIN", width/2, height/2+50);
   } else if (mode == PAUSE) {
     background(#fca311); 
     fill(255); 
